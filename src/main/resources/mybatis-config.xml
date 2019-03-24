@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="dbconfig.properties"></properties><!--引入配置文件-->
+    <!--日记记录-->
+    <settings>
+        <setting name="logImpl" value="LOG4J" />
+    </settings>
+    <!-- 别名 -->
+    <typeAliases>
+        <package name="com.zms.bean"/>
+    </typeAliases>
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"></transactionManager><!--事务管理-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${dbconfig.driver}" />
+                <property name="url" value="${dbconfig.url}" />
+                <property name="username" value="${dbconfig.username}" />
+                <property name="password" value="${dbconfig.password}" />
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <package name="com.zms.mapper"/>
+    </mappers>
+</configuration>
